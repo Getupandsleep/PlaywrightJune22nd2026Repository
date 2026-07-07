@@ -1,0 +1,88 @@
+/* 1. Call back Function
+2. Higher Order Function
+3. map(), filter(), reduce()
+ 
+ 
+1. Call back Function:
+A function can be passed as parameter to another function and execute it.
+ 
+Example: */
+function mainFunction(callback){
+    console.log("It is executing The main function statement");
+    callback()
+}
+ 
+function callbackFunction(){
+    console.log("It is executing Callback Function !!!");
+}
+ 
+mainFunction(callbackFunction)
+console.log("----------------------------------------");
+function display(cityname, x){
+    console.log("The Name of the City is :"+cityname);
+    x()
+}
+ 
+function showStateName(){
+    console.log("State Name is Karnataka");
+}
+ 
+display("Mysore", showStateName)
+ 
+// Case 1: Can we write function directly as parameters:
+function mainFunction(callback){
+    console.log("It is executing The main function statement");
+    callback()
+}
+ 
+ 
+mainFunction(function callbackFunction(){
+    console.log("It is executing Callback Function !!!");
+})
+console.log("----------------------------------------");
+ 
+function display(cityname, x){
+    console.log("The Name of the City is :"+cityname);
+    x()
+}
+ 
+display("Mysore", function showStateName(){
+    console.log("State Name is Karnataka"); 
+})
+ 
+// case 2: Whether a callback function can have parameters:
+ 
+function display(cityname, x){
+    console.log("The Name of the City is :"+cityname);
+    let statename="Kerala"
+    x(statename)
+}
+ 
+display("Mysore", function showStateName(sname){
+    console.log("State Name is :"+sname); 
+})
+ 
+// Case 3: A call back function can be a anonymous:
+ 
+ 
+function display(cityname, x){
+    console.log("The Name of the City is :"+cityname);
+    let statename="Kerala"
+    x(statename)
+}
+ 
+display("Mysore", function (sname){
+    console.log("State Name is :"+sname); 
+})
+ 
+ 
+// case 4: A call back function can be a Arrow function:
+function display(cityname, x){
+    console.log("The Name of the City is :"+cityname);
+    let statename="Tamilnadu"
+    x(statename)
+}
+ 
+display("Chennai", (sname)=>{
+    console.log("State Name is :"+sname); 
+})
